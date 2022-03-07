@@ -9,11 +9,15 @@ public class AnimationController : MonoBehaviour
     Animator anim;
     Vector3 direction;  //used to get x and z values of player movement input.
 
+    //animation states
     int robotIdle;
     int robotWalkL;
     int robotWalkR;
     int robotWalkF;
     int robotWalkB;
+    int robotSprinting;
+
+    RobotMovement rm;
 
     // Start is called before the first frame update
     void Start()
@@ -23,7 +27,10 @@ public class AnimationController : MonoBehaviour
         robotWalkF = Animator.StringToHash("WalkF");
         robotWalkB = Animator.StringToHash("WalkB");
         robotWalkL = Animator.StringToHash("WalkL");
-        robotWalkR = Animator.StringToHash("WalkR"); 
+        robotWalkR = Animator.StringToHash("WalkR");
+        robotSprinting = Animator.StringToHash("Sprint");
+
+        rm = RobotMovement.instance; 
     }
 
     // Update is called once per frame
@@ -32,6 +39,8 @@ public class AnimationController : MonoBehaviour
         direction = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")).normalized;
 
         //set animation
+        
+       
         if (direction.x < 0)
         {
             anim.SetBool(robotWalkL, true);
@@ -56,9 +65,19 @@ public class AnimationController : MonoBehaviour
         //opposite direction, the walk forward animation will play when in reality it should be the walk backward animation.
         if (direction.z > 0)
         {
-            Debug.Log("walking forward");
-            anim.SetBool(robotWalkF, true);
-            anim.SetBool(robotIdle, false);
+            //player can only sprint while moving forward
+            if(rm.isSprinting)
+            {
+                anim.SetBool(robotSprinting, true);
+                anim.SetBool(robotIdle, false);
+            }
+            else
+            {
+                Debug.Log("walking forward");
+                anim.SetBool(robotWalkF, true);
+                anim.SetBool(robotIdle, false);
+                anim.SetBool(robotSprinting, false);
+            }
         }
         else
         {
@@ -75,7 +94,8 @@ public class AnimationController : MonoBehaviour
         {
             anim.SetBool(robotWalkB, false);
         }
-
+          
+        //check if player is idle
         if (direction.x == 0 && direction.z == 0)
             anim.SetBool(robotIdle, true);
 
