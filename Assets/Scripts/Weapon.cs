@@ -20,4 +20,18 @@ public class Weapon : MonoBehaviour
     {
         
     }
+
+    public void OnTriggerEnter(Collider collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            //player collects weapon; the weapon disappears.
+
+            //place weapon in robot model's hands
+            //transform.position = collision.transform.position;
+            collision.GetComponent<Player>().shotgun.gameObject.SetActive(true);
+            Debug.Log("touched player");
+            Destroy(gameObject);    //should not actually destroy this. Want to avoid GC as much as possible.
+        }
+    }
 }

@@ -15,4 +15,5 @@ public class Shotgun : Weapon
     {
         
     }
+    
 }

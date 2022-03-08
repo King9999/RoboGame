@@ -8,6 +8,11 @@ using UnityEngine;
 public class Player : Robot
 {
     public Rigidbody rb;
+
+    //all weapons are hidden by default until player selects them. Only one weapon is visible at a time.
+    [Header("Weapon Models")]
+    [SerializeField]Transform weaponTransform;  //used to position weapons in front of the robot. This transform follows the player.
+    public Shotgun shotgun;         
     public float baseMoveSpeed {get;} = 10f;
     public float moveSpeed;
     public float vx, vy, vz;        //movement values. moveSpeed modifies these
@@ -22,10 +27,12 @@ public class Player : Robot
     // Start is called before the first frame update
     void Start()
     {
-        moveSpeed = baseMoveSpeed;
-        vx = 0;
-        vy = 0;
-        vz = 0;
+        //moveSpeed = baseMoveSpeed;
+        //vx = 0;
+        //vy = 0;
+        //vz = 0;
+
+        shotgun.gameObject.SetActive(false);
     }
 
    
@@ -47,14 +54,20 @@ public class Player : Robot
     }*/
 
     //FixedUpdate is for any physics involving rigidbodies. Player movement and possibly other actions go in here.
-    void FixedUpdate()
+    /*void FixedUpdate()
     {
         rb.velocity = new Vector3(vx, vy, vz);
-    }
+    }*/
 
     void Update()
     {
         //rb.velocity = new Vector3()
+        //shotgun.transform.position = new Vector3(transform.position.x - 0.702f,transform.position.y + 1.14f,transform.position.z + 0.372f);
+        Vector3 direction = transform.position - new Vector3(0.05f, -1.2f, 0.7f);
+        weaponTransform.position = direction; /*new Vector3(transform.position.x - 0.702f,transform.position.y + 1.14f,transform.position.z + 0.372f);*/
+        //weaponTransform.rotation = transform.rotation;
+        shotgun.transform.position = weaponTransform.position;
+        shotgun.transform.rotation = transform.rotation;
     }
 
     #region Controls
