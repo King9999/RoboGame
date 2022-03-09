@@ -9,6 +9,10 @@ public class AnimationController : MonoBehaviour
     Animator anim;
     Vector3 direction;  //used to get x and z values of player movement input.
 
+    //layer indexes
+    int legLayer;
+    int torsoLayer;
+
     //animation states
     int robotIdle;
     int robotWalkL;
@@ -16,8 +20,12 @@ public class AnimationController : MonoBehaviour
     int robotWalkF;
     int robotWalkB;
     int robotSprinting;
+    int robotPickUpWeapon;
 
+    //singletons
     RobotMovement rm;
+    Player player;
+
 
     // Start is called before the first frame update
     void Start()
@@ -29,8 +37,17 @@ public class AnimationController : MonoBehaviour
         robotWalkL = Animator.StringToHash("WalkL");
         robotWalkR = Animator.StringToHash("WalkR");
         robotSprinting = Animator.StringToHash("Sprint");
+        robotPickUpWeapon = Animator.StringToHash("PickUpWeapon");
 
-        rm = RobotMovement.instance; 
+        rm = RobotMovement.instance;
+        player = Player.instance;
+        //if (player == null)
+           // Debug.Log("Player null");
+        
+        legLayer = anim.GetLayerIndex("Leg Layer");
+        torsoLayer = anim.GetLayerIndex("Torso Layer");
+        //Debug.Log(legLayer + ", " + torsoLayer);
+        anim.SetLayerWeight(torsoLayer, 0); 
     }
 
     // Update is called once per frame
@@ -39,7 +56,16 @@ public class AnimationController : MonoBehaviour
         direction = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")).normalized;
 
         //set animation
-        
+        if (player.weaponPickedUp)
+        {
+            anim.SetLayerWeight(torsoLayer, 1);
+            anim.SetBool(robotPickUpWeapon, true);
+        }
+        else
+        {
+            anim.SetLayerWeight(torsoLayer, 0);
+            anim.SetBool(robotPickUpWeapon, false);
+        }
        
         if (direction.x < 0)
         {
@@ -73,7 +99,7 @@ public class AnimationController : MonoBehaviour
             }
             else
             {
-                Debug.Log("walking forward");
+                //Debug.Log("walking forward");
                 anim.SetBool(robotWalkF, true);
                 anim.SetBool(robotIdle, false);
                 anim.SetBool(robotSprinting, false);
@@ -86,7 +112,7 @@ public class AnimationController : MonoBehaviour
 
         if (direction.z < 0)
         {
-            Debug.Log("Walking backwards");
+            //Debug.Log("Walking backwards");
             anim.SetBool(robotWalkB, true);
             anim.SetBool(robotIdle, false);
         }

@@ -123,6 +123,86 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &254031191 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f9e1f64d72433ad45b66c89294a21c89, type: 3}
+  m_PrefabInstance: {fileID: 402274025}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &254031192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 254031191}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19a8f29177a5cf64bacf09a500b457e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponName: Shotgun
+  attackPower: 100
+--- !u!1001 &402274025
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2025788680}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: f9e1f64d72433ad45b66c89294a21c89, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f9e1f64d72433ad45b66c89294a21c89, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.514
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f9e1f64d72433ad45b66c89294a21c89, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.021
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f9e1f64d72433ad45b66c89294a21c89, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.49
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f9e1f64d72433ad45b66c89294a21c89, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f9e1f64d72433ad45b66c89294a21c89, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f9e1f64d72433ad45b66c89294a21c89, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f9e1f64d72433ad45b66c89294a21c89, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f9e1f64d72433ad45b66c89294a21c89, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f9e1f64d72433ad45b66c89294a21c89, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f9e1f64d72433ad45b66c89294a21c89, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f9e1f64d72433ad45b66c89294a21c89, type: 3}
+      propertyPath: m_Name
+      value: robotShotgun
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f9e1f64d72433ad45b66c89294a21c89, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f9e1f64d72433ad45b66c89294a21c89, type: 3}
 --- !u!1 &411566920
 GameObject:
   m_ObjectHideFlags: 0
@@ -235,7 +315,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f9e1f64d72433ad45b66c89294a21c89, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.22
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f9e1f64d72433ad45b66c89294a21c89, type: 3}
       propertyPath: m_LocalPosition.z
@@ -294,6 +374,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponName: Shotgun
   attackPower: 100
+--- !u!114 &672873278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 672873276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09f9f1cd7d1864247b7cefbd4c24e6f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!136 &672873279
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -401,6 +493,36 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &832501163
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 832501164}
+  m_Layer: 0
+  m_Name: Weapon Position
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &832501164
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 832501163}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.536, y: 0.961, z: -0.699}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -659,6 +781,30 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2025788674 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1193437961402752133, guid: be2689f254ac7b9419656594ab2b6ed1, type: 3}
+  m_PrefabInstance: {fileID: 8588960164460756172}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2025788680 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1193437961402752132, guid: be2689f254ac7b9419656594ab2b6ed1, type: 3}
+  m_PrefabInstance: {fileID: 8588960164460756172}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2025788681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2025788674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0727634a920e2c1488def9d87f1fe4c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shotgun: {fileID: 254031192}
+  weaponPickedUp: 0
 --- !u!1 &2084317016
 GameObject:
   m_ObjectHideFlags: 0
